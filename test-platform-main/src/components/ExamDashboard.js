@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button, Modal } from 'react-bootstrap';
 
@@ -40,8 +40,7 @@ const ExamDashboard = ({ student, customExams = [] }) => {
 
   const isTrueFalse = parseInt(optCount) === 2;
 
-  const correctAnswerKey = isPdfExam ? (customExam.answerKey || {}) : (legacyData?.answerKey || {});
-
+  const correctAnswerKey = useMemo(() => { return isPdfExam ? (customExam?.answerKey || {}) : (legacyData?.answerKey || {}); }, [isPdfExam, customExam, legacyData]);
   const [currentQ, setCurrentQ] = useState(0);
   const [answers, setAnswers] = useState({});
   const [timeLeft, setTimeLeft] = useState(examDuration);
