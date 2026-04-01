@@ -81,7 +81,6 @@ const ResultPage = ({ student, onLogout }) => {
         </tr>`;
     }
 
-    const percentage = Math.round((correctCount / result.total) * 100);
     const studentEmail = student?.email || student?.rollNo || '';
 
     const htmlContent = `
