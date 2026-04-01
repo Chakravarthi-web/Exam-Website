@@ -10,7 +10,7 @@ import { AdminDashboard, CreateExam, ManageExams, ViewResults, AdminSettings } f
 function App() {
   const [user, setUser] = useState(null);
   const [customExams, setCustomExams] = useState([]);
-  const [examResults, setExamResults] = useState([]);
+  const [examResults] = useState([]);
   const [adminSettings, setAdminSettings] = useState({
     defaultOptionsCount: 4,
     shuffleQuestions: false,
